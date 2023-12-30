@@ -15,7 +15,7 @@ public class BrazilCashService implements ServiceStrategy {
                 PaymentMethodEnum.CASH.equals(purchaseRequest.getPaymentMethodEnum());
     }
     @Override
-    public List<ValidationRule> getValidationRuleList() {
+    public ValidationRule getValidationRuleChain() {
         return null;
     }
 

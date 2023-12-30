@@ -17,7 +17,7 @@ public class BrazilCreditCardService implements ServiceStrategy {
     }
 
     @Override
-    public List<ValidationRule> getValidationRuleList() {
+    public ValidationRule getValidationRuleChain() {
         return null;
     }
 

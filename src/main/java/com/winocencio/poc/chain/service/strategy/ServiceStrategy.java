@@ -12,7 +12,7 @@ public interface ServiceStrategy {
     boolean isEligible(PurchaseRequest purchaseRequest);
     ErrorRule execute(PurchaseRequest purchaseRequest);
 
-    List<ValidationRule> getValidationRuleList();
+    ValidationRule getValidationRuleChain();
 
     static List<ServiceStrategy> getRuleServiceStrategyList(){
         return Arrays.asList(new BrazilCashService(),

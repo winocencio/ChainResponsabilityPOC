@@ -13,7 +13,7 @@ public class DefaultStrategyService implements ServiceStrategy {
         return false;
     }
     @Override
-    public List<ValidationRule> getValidationRuleList() {
+    public ValidationRule getValidationRuleChain() {
         return null;
     }
 

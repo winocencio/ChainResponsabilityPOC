@@ -1,6 +1,7 @@
 package com.winocencio.poc.chain.rule;
 
 import com.winocencio.poc.chain.dto.request.PurchaseRequest;
+import com.winocencio.poc.chain.error.ErrorRule;
 
 public abstract class ValidationRule {
 
@@ -10,11 +11,11 @@ public abstract class ValidationRule {
         this.next = next;
     }
 
-    protected boolean isValidNext(PurchaseRequest purchaseRequest) {
+    protected ErrorRule isValidNext(PurchaseRequest purchaseRequest) {
         if (next == null)
-            return true;
+            return null;
         return next.isValid(purchaseRequest);
     }
 
-    public abstract Boolean isValid(PurchaseRequest purchaseRequest);
+    public abstract ErrorRule isValid(PurchaseRequest purchaseRequest);
 }

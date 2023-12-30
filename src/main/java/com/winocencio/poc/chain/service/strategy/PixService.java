@@ -3,6 +3,7 @@ package com.winocencio.poc.chain.service.strategy;
 import com.winocencio.poc.chain.constant.PaymentMethodEnum;
 import com.winocencio.poc.chain.dto.request.PurchaseRequest;
 import com.winocencio.poc.chain.error.ErrorRule;
+import com.winocencio.poc.chain.rule.CurrencyRealValidationRule;
 import com.winocencio.poc.chain.rule.ValidationRule;
 import com.winocencio.poc.chain.service.strategy.ServiceStrategy;
 
@@ -14,12 +15,12 @@ public class PixService implements ServiceStrategy {
         return PaymentMethodEnum.PIX.equals(purchaseRequest.getPaymentMethodEnum());
     }
     @Override
-    public List<ValidationRule> getValidationRuleList() {
-        return null;
+    public ValidationRule getValidationRuleChain() {
+        return new CurrencyRealValidationRule(null);
     }
 
     @Override
     public ErrorRule execute(PurchaseRequest purchaseRequest) {
-        return null;
+        return getValidationRuleChain().isValid(purchaseRequest);
     }
 }
