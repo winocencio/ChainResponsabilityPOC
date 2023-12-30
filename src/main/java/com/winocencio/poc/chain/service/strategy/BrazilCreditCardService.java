@@ -1,10 +1,11 @@
-package com.winocencio.poc.chain.service;
+package com.winocencio.poc.chain.service.strategy;
 
 import com.winocencio.poc.chain.constant.CountryEnum;
 import com.winocencio.poc.chain.constant.PaymentMethodEnum;
 import com.winocencio.poc.chain.dto.request.PurchaseRequest;
+import com.winocencio.poc.chain.error.ErrorRule;
 import com.winocencio.poc.chain.rule.ValidationRule;
-import com.winocencio.poc.chain.strategy.ServiceStrategy;
+import com.winocencio.poc.chain.service.strategy.ServiceStrategy;
 
 import java.util.List;
 
@@ -16,12 +17,12 @@ public class BrazilCreditCardService implements ServiceStrategy {
     }
 
     @Override
-    public List<ValidationRule> getErrorRuleList() {
+    public List<ValidationRule> getValidationRuleList() {
         return null;
     }
 
     @Override
-    public boolean execute(PurchaseRequest purchaseRequest) {
-        return false;
+    public ErrorRule execute(PurchaseRequest purchaseRequest) {
+        return null;
     }
 }

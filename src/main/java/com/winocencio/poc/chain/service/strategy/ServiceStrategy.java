@@ -1,8 +1,8 @@
-package com.winocencio.poc.chain.strategy;
+package com.winocencio.poc.chain.service.strategy;
 
 import com.winocencio.poc.chain.dto.request.PurchaseRequest;
+import com.winocencio.poc.chain.error.ErrorRule;
 import com.winocencio.poc.chain.rule.ValidationRule;
-import com.winocencio.poc.chain.service.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,9 +10,9 @@ import java.util.List;
 public interface ServiceStrategy {
 
     boolean isEligible(PurchaseRequest purchaseRequest);
-    boolean execute(PurchaseRequest purchaseRequest);
+    ErrorRule execute(PurchaseRequest purchaseRequest);
 
-    List<ValidationRule> getErrorRuleList();
+    List<ValidationRule> getValidationRuleList();
 
     static List<ServiceStrategy> getRuleServiceStrategyList(){
         return Arrays.asList(new BrazilCashService(),

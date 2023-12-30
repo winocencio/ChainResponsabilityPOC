@@ -1,13 +1,13 @@
-package com.winocencio.poc.chain.error;
+package com.winocencio.poc.chain.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+@AllArgsConstructor
 @Getter
 @Setter
-@AllArgsConstructor
-public class ErrorRule {
+public class ValidatorResponse {
 
     private String message;
 }
